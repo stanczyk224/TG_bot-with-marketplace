@@ -19,4 +19,16 @@ module.exports = ({bot, db, isAdmin}) => {
 
     ctx.reply("✅ Product added");
   });
+  bot.command("users", (ctx) => {
+    if (!isAdmin(ctx)) {
+      return ctx.reply("❌ No access");
+    }
+
+    const users = db.prepare(
+      `
+      SELECT * FROM users
+      `
+    ).all();
+    console.log(users);
+  })
 };
