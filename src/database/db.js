@@ -1,6 +1,6 @@
 const Database = require("better-sqlite3");
 
-const db = new Database("shop.db");
+const db = new Database("../shop.db");
 
 db.prepare(`
     CREATE TABLE IF NOT EXISTS products (
